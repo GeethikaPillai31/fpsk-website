@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:is(.dark *));
+
 @theme {
   /* shadcn/ui CSS Variables */
   --background: 0 0% 100%;
@@ -48,11 +50,14 @@
   }
 }
 
-* {
-  border-color: hsl(var(--border));
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
 }
+
+/* shadcn/ui components will use border utilities with hsl(var(--border)) directly */
+/* No global border-color rule needed - prevents unwanted borders */

@@ -5,11 +5,10 @@ export function Header() {
     <header
       className={cn(
         "fixed top-4 left-4 right-4 z-50",
-        "bg-white/80",
-        "backdrop-blur-2xl",
-        "border border-gray-200/50",
+        "bg-white/30 backdrop-blur-2xl",
+        "border border-white/30",
         "rounded-2xl",
-        "shadow-lg shadow-black/5",
+        "shadow-lg shadow-black/10",
         "px-6 py-3.5",
         "transition-all duration-300"
       )}
