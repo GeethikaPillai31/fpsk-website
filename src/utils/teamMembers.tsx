@@ -22,8 +22,10 @@ export const teamMembers: TeamMember[] = [
     services: [
       Service.ADHD_LEARNING_DISABILITIES_EVALUATIONS,
       Service.INDEPENDENT_EDUCATIONAL_EVALUATION,
-      Service.ADHD_INFORMED_COUPLES_FAMILY_THERAPY,
       Service.EF_SKILLS_COACHING,
+      Service.AUTISM_DIAGNOSTIC_EVALUATIONS,
+      Service.CONCUSSION_NEUROLOGICAL_COGNITIVE_DECLINE,
+      Service.PSYCHOTHERAPY,
     ],
     bookable: true,
     bio: (
@@ -54,6 +56,7 @@ export const teamMembers: TeamMember[] = [
     title: "Clinical Neuropsychologist",
     services: [
       Service.ADHD_LEARNING_DISABILITIES_EVALUATIONS,
+      Service.AUTISM_DIAGNOSTIC_EVALUATIONS,
       Service.CONCUSSION_NEUROLOGICAL_COGNITIVE_DECLINE,
     ],
     bookable: true,
@@ -156,6 +159,7 @@ export const teamMembers: TeamMember[] = [
     services: [
       Service.ADHD_LEARNING_DISABILITIES_EVALUATIONS,
       Service.INDEPENDENT_EDUCATIONAL_EVALUATION,
+      Service.AUTISM_DIAGNOSTIC_EVALUATIONS,
       Service.PSYCHOTHERAPY,
     ],
     bookable: true,
@@ -265,7 +269,7 @@ export const teamMembers: TeamMember[] = [
     image: tammyBoagWhitleyImage,
     name: "Tammy Boag Whitley",
     title: "Lead Psychometrist",
-    services: [Service.CONCUSSION_NEUROLOGICAL_COGNITIVE_DECLINE],
+    services: [],
     bio: (
       <>
         <p>
@@ -336,10 +340,7 @@ export const teamMembers: TeamMember[] = [
     image: willCarrollImage,
     name: "Will Carroll",
     title: "Assistant to the Clinical Director",
-    services: [
-      Service.EF_SKILLS_COACHING,
-      Service.CONCUSSION_NEUROLOGICAL_COGNITIVE_DECLINE,
-    ],
+    services: [Service.EF_SKILLS_COACHING],
     bio: (
       <>
         <p>
