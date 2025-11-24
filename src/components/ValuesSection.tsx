@@ -12,39 +12,39 @@ import { Card, CardContent } from "@/components/ui/card";
 const values = [
   {
     icon: Heart,
-    title: "Compassionate Care",
+    title: "Compassionate, Person-Centered Care",
     description:
-      "We provide empathetic, person-centered care that respects each individual's unique journey and needs.",
+      "We meet you with warmth, respect, and curiosity, honoring your story and tailoring care to your unique needs, strengths, and goals.",
   },
   {
     icon: Shield,
-    title: "Trust & Confidentiality",
+    title: "A Safe & Confidential Space",
     description:
-      "Your privacy and trust are paramount. We maintain the highest standards of confidentiality and ethical practice.",
+      "We treat your trust as sacred. Every conversation is held to the highest ethical and professional standards so you can speak freely and feel truly heard.",
   },
   {
     icon: Target,
-    title: "Evidence-Based Practice",
+    title: "Research-Informed, Effective Treatment",
     description:
-      "Our services are grounded in the latest research and proven therapeutic approaches for effective outcomes.",
+      "We rely on evidence-based approaches and the latest clinical science, thoughtfully adapting each intervention to fit who you are and what you’re facing.",
   },
   {
     icon: Users,
-    title: "Family-Centered Approach",
+    title: "Care for the Whole Family",
     description:
-      "We understand that mental health affects the whole family, and we work collaboratively with all members.",
+      "We recognize that growth and healing often happen in relationships. When helpful, we partner with children, caregivers, and families to strengthen communication, connection, and support at home.",
   },
   {
     icon: HandHeart,
-    title: "Accessible Support",
+    title: "Care That’s Easier to Reach",
     description:
-      "We serve children, teens, and adults across the Kirkland community, making mental health support accessible to all.",
+      "We work to reduce barriers to mental health care for children, teens, and adults in the state of Washington, so getting support feels possible, not overwhelming.",
   },
   {
     icon: CheckCircle2,
-    title: "Comprehensive Services",
+    title: "Support Across Your Journey",
     description:
-      "From assessments to therapy and coaching, we offer a full range of services to meet diverse needs.",
+      "From comprehensive assessments to therapy, consultation, and ongoing guidance, we offer a connected range of services designed to grow with you over time.",
   },
 ];
 
@@ -70,10 +70,10 @@ export function ValuesSection() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            What We Stand For
+            Our Promise to You and Your Family
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            At Family Psychological Services of Kirkland, we are committed to
+            At <span className="shimmer-text">FPSK</span>, we are committed to
             providing exceptional mental health care grounded in compassion,
             expertise, and evidence-based practice.
           </p>
@@ -94,8 +94,8 @@ export function ValuesSection() {
                 <Card className="h-full hover:shadow-lg transition-shadow border-gray-200">
                   <CardContent className="p-6">
                     <div className="flex flex-col items-start">
-                      <div className="w-12 h-12 rounded-lg bg-green-100 flex items-center justify-center mb-4">
-                        <Icon className="w-6 h-6 text-green-600" />
+                      <div className="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center mb-4">
+                        <Icon className="w-6 h-6 text-blue-600" />
                       </div>
                       <h3 className="text-xl font-semibold text-gray-900 mb-2">
                         {value.title}
@@ -125,8 +125,7 @@ export function ValuesSection() {
             </h3>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               We provide comprehensive mental health services to individuals,
-              families, and organizations throughout the Kirkland community and
-              beyond.
+              families, and organizations throughout the state of Washington.
             </p>
           </div>
 
@@ -140,7 +139,7 @@ export function ValuesSection() {
                 transition={{ duration: 0.4, delay: index * 0.05 }}
                 className="flex items-center gap-2 bg-white rounded-lg px-4 py-3 shadow-sm"
               >
-                <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0" />
+                <CheckCircle2 className="w-5 h-5 text-blue-600 shrink-0" />
                 <span className="text-gray-900 font-medium">{item}</span>
               </motion.div>
             ))}

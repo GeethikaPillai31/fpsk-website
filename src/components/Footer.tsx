@@ -8,14 +8,15 @@ export function Footer() {
           {/* Brand Section */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 bg-gradient-to-br from-green-500 to-green-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xs">FPSK</span>
-              </div>
-              <span className="text-white font-semibold text-lg">FPSK</span>
+              <img
+                src="/favicon.png"
+                alt="FPSK Logo"
+                className="w-8 h-8 object-contain"
+              />
+              <span className="text-white font-semibold text-sm">
+                Family Psychological Services of Kirkland
+              </span>
             </div>
-            <p className="text-sm text-gray-400 mb-4">
-              Family Psychological Services of Kirkland
-            </p>
             <p className="text-sm text-gray-400">
               Offering comprehensive mental health services to support
               individuals and families in our community.

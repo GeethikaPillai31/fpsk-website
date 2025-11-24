@@ -1,54 +1,54 @@
+import { Link } from "react-router-dom";
+import {
+  Service,
+  getServiceLabel,
+  getServiceDescription,
+} from "@/types/services";
+
 export function ServicesSection() {
   const assessments = [
     {
-      title: "ADHD and Learning Disabilities",
-      description:
-        "Evaluations for children, adolescents, and adults designed to identify learning disabilities and ADHD.",
+      serviceId: Service.ADHD_LEARNING_DISABILITIES_EVALUATIONS,
+      gradient: "from-blue-100 via-blue-50 to-cyan-50",
     },
     {
-      title: "Autism Diagnostic Evaluations",
-      description:
-        "ASD evaluations for individuals ranging in age from 3 years through adulthood.",
+      serviceId: Service.AUTISM_DIAGNOSTIC_EVALUATIONS,
+      gradient: "from-indigo-100 via-indigo-50 to-blue-50",
     },
     {
-      title: "Concussion, Neurological Illness/Injury, Cognitive Decline",
-      description:
-        "Comprehensive assessments for differential diagnosis of a broad range of disorders.",
+      serviceId: Service.CONCUSSION_NEUROLOGICAL_COGNITIVE_DECLINE,
+      gradient: "from-slate-100 via-slate-50 to-blue-50",
     },
     {
-      title: "Kindergarten Early Entrance Assessment",
-      description: "Administered by school psychologists.",
+      serviceId: Service.KINDERGARTEN_EARLY_ENTRANCE_ASSESSMENT,
+      gradient: "from-teal-100 via-teal-50 to-emerald-50",
     },
     {
-      title: "Independent Educational Evaluation",
-      description:
-        "In-depth evaluations providing parents and school district staff with an independent assessment of a student's current functioning and academic needs.",
+      serviceId: Service.INDEPENDENT_EDUCATIONAL_EVALUATION,
+      gradient: "from-cyan-100 via-cyan-50 to-blue-50",
     },
   ];
 
   const therapyServices = [
     {
-      title: "Psychotherapy",
-      description:
-        "Individual and family therapy for children, teens, and adults.",
+      serviceId: Service.PSYCHOTHERAPY,
+      gradient: "from-green-100 via-green-50 to-emerald-50",
     },
     {
-      title: "EF Skills Coaching",
-      description:
-        "Master's level coaches work on building skills around executive functioning.",
+      serviceId: Service.EF_SKILLS_COACHING,
+      gradient: "from-emerald-100 via-emerald-50 to-teal-50",
     },
     {
-      title: "ADHD-Informed Couples and Family Therapy",
-      description: "Therapy focused on supporting ADHD families and couples.",
+      serviceId: Service.ADHD_INFORMED_COUPLES_FAMILY_THERAPY,
+      gradient: "from-teal-100 via-teal-50 to-cyan-50",
     },
     {
-      title: "EMDR Therapy",
-      description: "Eye Movement Desensitization and Reprocessing.",
+      serviceId: Service.EMDR_THERAPY,
+      gradient: "from-violet-100 via-violet-50 to-purple-50",
     },
     {
-      title: "Forest Bathing",
-      description:
-        "Walks are offered in local parks with easy terrain in mind; at a gentle and slow pace, suitable for all-bodies.",
+      serviceId: Service.FOREST_BATHING,
+      gradient: "from-green-100 via-green-50 to-lime-50",
     },
   ];
 
@@ -65,55 +65,74 @@ export function ServicesSection() {
           </p>
         </div>
 
-        {/* Assessments */}
-        <div className="mb-20">
-          <h3 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-            Assessments
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {assessments.map((assessment, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow"
-              >
-                <h4 className="text-xl font-semibold text-gray-900 mb-3">
-                  {assessment.title}
-                </h4>
-                <p className="text-gray-600">{assessment.description}</p>
-                <a
-                  href="#"
-                  className="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium"
+        {/* Assessments and Therapy/Coaching Side by Side */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          {/* Assessments */}
+          <div>
+            <h3 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+              Assessments
+            </h3>
+            <div className="grid grid-cols-1 gap-6">
+              {assessments.map((assessment, index) => (
+                <div
+                  key={index}
+                  className={`relative rounded-xl border border-gray-200/50 overflow-hidden hover:shadow-lg transition-all duration-300 group bg-gradient-to-r ${assessment.gradient}`}
                 >
-                  Read More →
-                </a>
-              </div>
-            ))}
+                  {/* Content */}
+                  <div className="relative z-10 p-6">
+                    <h4 className="text-xl font-semibold text-gray-900 mb-3">
+                      {getServiceLabel(assessment.serviceId)}
+                    </h4>
+                    <p className="text-gray-700 mb-4">
+                      {getServiceDescription(assessment.serviceId)}
+                    </p>
+                    <Link
+                      to={`/service/${assessment.serviceId}`}
+                      className="inline-flex items-center gap-1 text-gray-900 hover:text-gray-700 font-medium transition-colors group/link"
+                    >
+                      Read More
+                      <span className="transition-transform group-hover/link:translate-x-1">
+                        →
+                      </span>
+                    </Link>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
 
-        {/* Therapy/Coaching */}
-        <div>
-          <h3 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-            Therapy & Coaching
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {therapyServices.map((service, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow"
-              >
-                <h4 className="text-xl font-semibold text-gray-900 mb-3">
-                  {service.title}
-                </h4>
-                <p className="text-gray-600">{service.description}</p>
-                <a
-                  href="#"
-                  className="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium"
+          {/* Therapy/Coaching */}
+          <div>
+            <h3 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+              Therapy & Coaching
+            </h3>
+            <div className="grid grid-cols-1 gap-6">
+              {therapyServices.map((service, index) => (
+                <div
+                  key={index}
+                  className={`relative rounded-xl border border-gray-200/50 overflow-hidden hover:shadow-lg transition-all duration-300 group bg-gradient-to-r ${service.gradient}`}
                 >
-                  Read More →
-                </a>
-              </div>
-            ))}
+                  {/* Content */}
+                  <div className="relative z-10 p-6">
+                    <h4 className="text-xl font-semibold text-gray-900 mb-3">
+                      {getServiceLabel(service.serviceId)}
+                    </h4>
+                    <p className="text-gray-700 mb-4">
+                      {getServiceDescription(service.serviceId)}
+                    </p>
+                    <Link
+                      to={`/service/${service.serviceId}`}
+                      className="inline-flex items-center gap-1 text-gray-900 hover:text-gray-700 font-medium transition-colors group/link"
+                    >
+                      Read More
+                      <span className="transition-transform group-hover/link:translate-x-1">
+                        →
+                      </span>
+                    </Link>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

@@ -1,6 +1,26 @@
 import { cn } from "@/lib/utils";
+import TextAnimate from "@/components/ui/text-animate";
+import { Link, useLocation } from "react-router-dom";
+import ParticleButton from "@/components/kokonutui/particle-button";
+import { ExternalLink } from "lucide-react";
 
 export function Header() {
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
+
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    hash: string
+  ) => {
+    if (isHomePage) {
+      e.preventDefault();
+      const element = document.querySelector(hash);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
+
   return (
     <header
       className={cn(
@@ -14,45 +34,66 @@ export function Header() {
       )}
     >
       <nav className="flex items-center justify-between max-w-7xl mx-auto">
-        <div className="flex items-center gap-3">
-          <div className="w-9 h-9 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center shadow-sm">
-            <span className="text-white font-bold text-xs">FPSK</span>
+        <Link to="/" className="flex items-center gap-3">
+          <img
+            src="/favicon.png"
+            alt="FPSK Logo"
+            className="w-9 h-9 object-contain"
+          />
+          <div className="flex items-center overflow-hidden">
+            <TextAnimate
+              text="Family Psychological Services of Kirkland"
+              type="calmInUp"
+              className="!mt-0 !py-0 !px-0 text-sm font-medium text-gray-900"
+            />
           </div>
-          <div className="flex flex-col">
-            <span className="text-sm font-semibold text-gray-900 leading-tight">
-              FPSK
-            </span>
-            <span className="text-[10px] text-gray-600 leading-tight">
-              Family Psychological Services of Kirkland
-            </span>
-          </div>
-        </div>
+        </Link>
 
         <div className="flex items-center gap-8">
           <a
-            href="#home"
+            href={isHomePage ? "#home" : "/#home"}
+            onClick={(e) => handleNavClick(e, "#home")}
             className="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors"
           >
             Home
           </a>
           <a
-            href="#team"
+            href={isHomePage ? "#team" : "/#team"}
+            onClick={(e) => handleNavClick(e, "#team")}
             className="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors"
           >
             Our Team
           </a>
           <a
-            href="#services"
+            href={isHomePage ? "#services" : "/#services"}
+            onClick={(e) => handleNavClick(e, "#services")}
             className="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors"
           >
             Services
           </a>
           <a
-            href="#contact"
+            href={isHomePage ? "#faq" : "/#faq"}
+            onClick={(e) => handleNavClick(e, "#faq")}
+            className="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors"
+          >
+            Billing FAQ
+          </a>
+          <a
+            href={isHomePage ? "#contact" : "/#contact"}
+            onClick={(e) => handleNavClick(e, "#contact")}
             className="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors"
           >
             Contact Us
           </a>
+          <ParticleButton
+            onClick={() => {
+              window.open("https://www.therapyportal.com/p/fpsk98033/login/", "_blank");
+            }}
+            className="bg-blue-600 hover:bg-blue-700 text-white flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-sm font-medium"
+          >
+            <span>Client Portal</span>
+            <ExternalLink className="w-4 h-4" />
+          </ParticleButton>
         </div>
       </nav>
     </header>

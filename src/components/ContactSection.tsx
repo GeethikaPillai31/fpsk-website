@@ -108,40 +108,78 @@ export function ContactSection() {
 
           {/* Contact Information */}
           <div>
-            <div className="bg-gray-50 rounded-lg p-8 h-full">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                Get in Touch
-              </h3>
+            <div className="bg-gray-50 rounded-lg p-8">
+              {/* Content */}
+              <div className="flex flex-col">
+                <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                  Get in Touch
+                </h3>
+                <div className="flex lg:flex-row gap-6">
+                  <div className="space-y-6 flex-shrink-0">
+                    <div>
+                      <h4 className="text-sm font-semibold text-gray-700 mb-2">
+                        Address
+                      </h4>
+                      <p className="text-gray-600">
+                        312 11th Avenue West
+                        <br />
+                        Suite 201
+                        <br />
+                        Kirkland, WA 98033
+                      </p>
+                    </div>
 
-              <div className="space-y-6">
-                <div>
-                  <h4 className="text-sm font-semibold text-gray-700 mb-2">
-                    Address
-                  </h4>
-                  <p className="text-gray-600">
-                    312 11th Avenue West
-                    <br />
-                    Suite 201
-                    <br />
-                    Kirkland, WA 98033
-                  </p>
+                    <div>
+                      <h4 className="text-sm font-semibold text-gray-700 mb-2">
+                        Phone
+                      </h4>
+                      <p className="text-gray-600">(425) 576-1817</p>
+                    </div>
+
+                    <div>
+                      <h4 className="text-sm font-semibold text-gray-700 mb-2">
+                        Fax
+                      </h4>
+                      <p className="text-gray-600">(425) 827-7210</p>
+                    </div>
+                  </div>
+
+                  {/* Apple-style Map */}
+                  <div className="flex-1 rounded-xl overflow-hidden shadow-md border border-gray-200 min-h-[320px]">
+                    <div className="relative w-full h-full min-h-[320px] bg-gray-100">
+                      <iframe
+                        src="https://www.google.com/maps?q=312+11th+Avenue+West+Suite+201,Kirkland+WA+98033&output=embed"
+                        width="100%"
+                        height="100%"
+                        style={{ border: 0 }}
+                        allowFullScreen
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                        className="absolute inset-0 w-full h-full"
+                      />
+                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-white/90 via-white/50 to-transparent h-24 pointer-events-none" />
+                      <div className="absolute bottom-4 left-4 right-4 pointer-events-none">
+                        <div className="bg-white/95 backdrop-blur-sm rounded-xl p-4 shadow-lg border border-gray-200/50">
+                          <div className="flex items-start gap-3">
+                            <div className="shrink-0 mt-0.5">
+                              <div className="w-2 h-2 bg-blue-500 rounded-full" />
+                            </div>
+                            <div className="flex-1 min-w-0">
+                              <p className="text-sm font-semibold text-gray-900 mb-1">
+                                312 11th Avenue West
+                              </p>
+                              <p className="text-xs text-gray-600">
+                                Suite 201, Kirkland, WA 98033
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-
-                <div>
-                  <h4 className="text-sm font-semibold text-gray-700 mb-2">
-                    Phone
-                  </h4>
-                  <p className="text-gray-600">(425) 576-1817</p>
-                </div>
-
-                <div>
-                  <h4 className="text-sm font-semibold text-gray-700 mb-2">
-                    Fax
-                  </h4>
-                  <p className="text-gray-600">(425) 827-7210</p>
-                </div>
-
-                <div>
+                {/* Note spanning full width */}
+                <div className="mt-6 pt-6 border-t border-gray-300">
                   <h4 className="text-sm font-semibold text-gray-700 mb-2">
                     Note
                   </h4>
