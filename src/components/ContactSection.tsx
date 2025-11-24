@@ -145,7 +145,7 @@ export function ContactSection() {
                   </div>
 
                   {/* Apple-style Map */}
-                  <div className="flex-1 rounded-xl overflow-hidden shadow-md border border-gray-200 min-h-[320px]">
+                  <div className="hidden md:flex flex-1 rounded-xl overflow-hidden shadow-md border border-gray-200 min-h-[320px]">
                     <div className="relative w-full h-full min-h-[320px] bg-gray-100">
                       <iframe
                         src="https://www.google.com/maps?q=312+11th+Avenue+West+Suite+201,Kirkland+WA+98033&output=embed"

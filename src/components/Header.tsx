@@ -40,7 +40,7 @@ export function Header() {
       <nav className="flex items-center justify-between max-w-7xl mx-auto">
         <Link to="/" className="flex items-center gap-3" onClick={() => setIsMobileMenuOpen(false)}>
           <img
-            src="/favicon.png"
+            src={`${import.meta.env.BASE_URL}favicon.png`}
             alt="FPSK Logo"
             className="w-9 h-9 object-contain"
           />
