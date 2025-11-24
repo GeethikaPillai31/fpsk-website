@@ -166,7 +166,7 @@ export const teamMembers: TeamMember[] = [
     bio: (
       <>
         <p>
-          Dr. Geethika Pillai is a clinical neuropsychologist postdoctoral
+          Dr. Geethika Pillai is a clinical neuropsychology postdoctoral
           fellow whose work is grounded in the belief that minds that work
           differently deserve to be deeply understood, not simply pathologized.
           With clinical expertise spanning neuropsychological assessment and
