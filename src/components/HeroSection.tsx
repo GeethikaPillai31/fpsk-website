@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { ChevronDown } from "lucide-react";
 import heroImage from "@/assets/hero-image.png";
 
 const transitionVariants = {
@@ -133,6 +134,40 @@ export function HeroSection() {
             </div>
           </div>
         </div>
+
+        {/* Scroll Indicator */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{
+            delay: 2,
+            duration: 0.8,
+          }}
+          className="absolute bottom-12 left-1/2 -translate-x-1/2 z-10"
+        >
+          <a
+            href="#team"
+            className="flex flex-col items-center gap-3 group cursor-pointer"
+            aria-label="Scroll to next section"
+          >
+            <motion.div
+              animate={{
+                y: [0, 10, 0],
+                opacity: [1, 0.7, 1],
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="flex flex-col items-center"
+            >
+              <div className="w-10 h-10 rounded-full bg-white/80 backdrop-blur-sm border border-gray-200/50 flex items-center justify-center shadow-lg group-hover:bg-white/90 transition-all">
+                <ChevronDown className="w-5 h-5 text-gray-900" />
+              </div>
+            </motion.div>
+          </a>
+        </motion.div>
       </section>
     </main>
   );
