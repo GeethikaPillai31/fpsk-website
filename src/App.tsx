@@ -10,8 +10,14 @@ if ("scrollRestoration" in window.history) {
 }
 
 function App() {
+  // Determine basename based on the current path
+  // For GitHub Pages: /fpsk-website/, for local dev: /
+  const basename = window.location.pathname.startsWith("/fpsk-website")
+    ? "/fpsk-website"
+    : "/";
+
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={basename}>
       <ScrollToTop />
       <div className="min-h-screen w-full relative">
         <Header />

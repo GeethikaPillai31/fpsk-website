@@ -4,6 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import ParticleButton from "@/components/kokonutui/particle-button";
 import { ExternalLink, Menu, X } from "lucide-react";
 import { useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
 
 export function Header() {
   const location = useLocation();
@@ -53,7 +54,7 @@ export function Header() {
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden lg:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-6 lg:gap-8">
           <a
             href={isHomePage ? "#home" : "/#home"}
             onClick={(e) => handleNavClick(e, "#home")}
@@ -103,69 +104,106 @@ export function Header() {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="lg:hidden p-2 text-gray-700 hover:text-gray-900 transition-colors"
+          className="md:hidden p-2 text-gray-700 hover:text-gray-900 transition-colors"
           aria-label="Toggle menu"
+          aria-expanded={isMobileMenuOpen}
         >
-          {isMobileMenuOpen ? (
-            <X className="w-6 h-6" />
-          ) : (
-            <Menu className="w-6 h-6" />
-          )}
+          <motion.div
+            animate={{ rotate: isMobileMenuOpen ? 90 : 0 }}
+            transition={{ duration: 0.2 }}
+          >
+            {isMobileMenuOpen ? (
+              <X className="w-6 h-6" />
+            ) : (
+              <Menu className="w-6 h-6" />
+            )}
+          </motion.div>
         </button>
       </nav>
 
       {/* Mobile Menu Dropdown */}
-      {isMobileMenuOpen && (
-        <div className="lg:hidden mt-4 pt-4 border-t border-gray-200/50">
-          <div className="flex flex-col gap-4">
-            <a
-              href={isHomePage ? "#home" : "/#home"}
-              onClick={(e) => handleNavClick(e, "#home")}
-              className="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors py-2"
-            >
-              Home
-            </a>
-            <a
-              href={isHomePage ? "#team" : "/#team"}
-              onClick={(e) => handleNavClick(e, "#team")}
-              className="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors py-2"
-            >
-              Our Team
-            </a>
-            <a
-              href={isHomePage ? "#services" : "/#services"}
-              onClick={(e) => handleNavClick(e, "#services")}
-              className="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors py-2"
-            >
-              Services
-            </a>
-            <a
-              href={isHomePage ? "#faq" : "/#faq"}
-              onClick={(e) => handleNavClick(e, "#faq")}
-              className="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors py-2"
-            >
-              Billing FAQ
-            </a>
-            <a
-              href={isHomePage ? "#contact" : "/#contact"}
-              onClick={(e) => handleNavClick(e, "#contact")}
-              className="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors py-2"
-            >
-              Contact Us
-            </a>
-            <ParticleButton
-              onClick={() => {
-                window.open("https://www.therapyportal.com/p/fpsk98033/login/", "_blank");
-                setIsMobileMenuOpen(false);
-              }}
-              className="bg-blue-600 hover:bg-blue-700 text-white flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-sm font-medium w-full"
-            >
-              <span>Client Portal</span>
-              <ExternalLink className="w-4 h-4" />
-            </ParticleButton>
-          </div>
-        </div>
-      )}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="md:hidden overflow-hidden"
+          >
+            <div className="mt-4 pt-4 border-t border-gray-200/50">
+              <div className="flex flex-col gap-3">
+                <motion.a
+                  href={isHomePage ? "#home" : "/#home"}
+                  onClick={(e) => handleNavClick(e, "#home")}
+                  className="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors py-2 px-2 rounded-lg hover:bg-gray-100/50"
+                  initial={{ x: -20, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ delay: 0.1 }}
+                >
+                  Home
+                </motion.a>
+                <motion.a
+                  href={isHomePage ? "#team" : "/#team"}
+                  onClick={(e) => handleNavClick(e, "#team")}
+                  className="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors py-2 px-2 rounded-lg hover:bg-gray-100/50"
+                  initial={{ x: -20, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ delay: 0.15 }}
+                >
+                  Our Team
+                </motion.a>
+                <motion.a
+                  href={isHomePage ? "#services" : "/#services"}
+                  onClick={(e) => handleNavClick(e, "#services")}
+                  className="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors py-2 px-2 rounded-lg hover:bg-gray-100/50"
+                  initial={{ x: -20, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ delay: 0.2 }}
+                >
+                  Services
+                </motion.a>
+                <motion.a
+                  href={isHomePage ? "#faq" : "/#faq"}
+                  onClick={(e) => handleNavClick(e, "#faq")}
+                  className="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors py-2 px-2 rounded-lg hover:bg-gray-100/50"
+                  initial={{ x: -20, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ delay: 0.25 }}
+                >
+                  Billing FAQ
+                </motion.a>
+                <motion.a
+                  href={isHomePage ? "#contact" : "/#contact"}
+                  onClick={(e) => handleNavClick(e, "#contact")}
+                  className="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors py-2 px-2 rounded-lg hover:bg-gray-100/50"
+                  initial={{ x: -20, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ delay: 0.3 }}
+                >
+                  Contact Us
+                </motion.a>
+                <motion.div
+                  initial={{ x: -20, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ delay: 0.35 }}
+                >
+                  <ParticleButton
+                    onClick={() => {
+                      window.open("https://www.therapyportal.com/p/fpsk98033/login/", "_blank");
+                      setIsMobileMenuOpen(false);
+                    }}
+                    className="bg-blue-600 hover:bg-blue-700 text-white flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-sm font-medium w-full mt-2"
+                  >
+                    <span>Client Portal</span>
+                    <ExternalLink className="w-4 h-4" />
+                  </ParticleButton>
+                </motion.div>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }
