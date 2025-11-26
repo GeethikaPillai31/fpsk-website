@@ -341,6 +341,7 @@ export const teamMembers: TeamMember[] = [
     name: "Will Carroll",
     title: "Assistant to the Clinical Director",
     services: [Service.EF_SKILLS_COACHING],
+    bookable: true,
     bio: (
       <>
         <p>
